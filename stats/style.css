@@ -1,0 +1,76 @@
+body {
+    color: black;
+    text-align: center;
+    background-image: url('fond.jpg');
+    background-size: cover;
+}
+
+*:focus,
+*:after,
+*:before,
+*::selection,
+*:active {
+    outline: none;
+}
+
+.break_flex {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+#formulaire {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #a5a4a4;
+    text-align: right;
+}
+
+#formulaire>*:not(hr) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 5%;
+}
+
+img {
+    margin: -90px -20px 0 -40px;
+}
+
+#graphs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+#graphs>table>thead>tr {
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+#graphs>table>tbody>tr {
+    border: 2px solid black;
+}
+
+#graphs>table {
+    margin: 50px;
+    background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+    #graphs {
+        flex-direction: column;
+    }
+    #graphs>* {
+        width: 100%;
+        height: auto;
+    }
+}

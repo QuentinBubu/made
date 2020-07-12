@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/base.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="js.js" defer></script>
+    <title>Saisie des données</title>
+</head>
+
+<body>
+    <h1>Bienvenue sur le site créateur de statistiques météorologiques</h1>
+    <h3>Veilliez remplir les champs</h3>
+    <form action="affichage.php" method="post">
+        <section id="formulaire">
+
+            <label for="temp1">Température</label>
+            <input type="number" name="temp[]" id="temp1" required />
+
+            <label for="rain1">Pluie</label>
+            <input type="number" name="rain[]" id="rain1" required />
+
+            <label for="wind1">Vitesse du vent</label>
+            <input type="number" name="wind[]" id="wind1" required />
+
+            <label for="date1">Date</label>
+            <input type="date" name="date[]" id="date1" required />
+
+            <label for="hour1">Heure</label>
+            <input type="time" name="hour[]" id="hour1" required />
+
+            <hr id="hrBreak" />
+            <hr />
+            <button type="button" id="less">-</button>
+            <button type="button" id="more">+</button>
+            <hr />
+            <hr />
+            <button type="reset">Tout effacer</button>
+            <button type="submit">Envoyer</button>
+        </section>
+    </form>
+</body>
+
+</html>
