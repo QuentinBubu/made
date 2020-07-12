@@ -15,3 +15,4 @@ Statistiques est un TP **créé pour** https://made.alwaysdata.net et **créé p
 7. Lors de la saisie des données, l'utilisateur **doit** pourvoir saisir autant de données que souhaités
 8. Il est **possible** d'ajouter un fichier JSON contenant toutes les données envoyés
 9. Il est **possible** de demander lors de l'envoi du formulaire si la personne veut utiliser le fichier JSON et donc stockés ses données dedans et faire les graphiques de fonction ou si elle préfère faire les graphiques sans
+10. Les fichiers _arial.ttf_, _fond.jpg_ sont à votre disposition
