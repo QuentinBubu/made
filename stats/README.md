@@ -7,6 +7,13 @@ Statistiques est un TP **créé pour** https://made.alwaysdata.net et **créé p
 ### Droits
 - Sauf contre indication, se référencer à la section **Droits** sur https://github.com/QuentinBubu/made
 
+### Ressources externes
+- Police(s)
+    |-> arial.ttf utilisée: https://www.font-police.com/affiche.php?a=classique&b=sans-serif&c=arial.ttf
+    
+- Image(s) 
+    |-> fond.jpg utilisée: https://pixnio.com/fr/nature-paysages/ensoleillement-fr/soleil-coucher-de-soleil-paysage-montagne-ciel-soleil-lever-du-soleil
+
 ### Contraintes 
 1. Le JS HTML CSS PHP **uniquement doivent** être utilisé
 2. **Aucun** FrameWork ne doit être utilisé 
