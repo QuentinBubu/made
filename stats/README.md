@@ -5,7 +5,7 @@ Statistiques est un TP **créé pour** https://made.alwaysdata.net et **créé p
 - Il est préférable de d'abord faire le TP **avant** de regarder ces fichiers
 
 ### Droits
-- Sauf contre indication, se référencer à la section **Droits** sur https://github.com/QuentinBubu/made
+- Sauf contre indication, se référencer à la section **Droits** sur https://github.com/QuentinBubu/made#Droits
 
 ### Ressources externes
 - Police(s)
