@@ -5,8 +5,7 @@ Statistiques est un TP **créé pour** https://made.alwaysdata.net et **créé p
 - Il est préférable de d'abord faire le TP **avant** de regarder ces fichiers
 
 ### Droits
-- L'accès à ces fichiers **doit** être **gratuit**
-- Si vous choisissez de mettre ce projet tel quel dans votre site, vous **devez citer** l'auteur soit https://github.com/QuentinBubu/
+- Sauf contre indication, se référencer à la section **Droits** sur https://github.com/QuentinBubu/made
 
 ### Contraintes 
 1. Le JS HTML CSS PHP **uniquement doivent** être utilisé
