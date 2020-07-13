@@ -3,7 +3,10 @@ Statistiques est un TP **créé pour** https://made.alwaysdata.net et **créé p
 
 - Ces fichiers sont **une** correction proposée et non **la** correction
 - Il est préférable de d'abord faire le TP **avant** de regarder ces fichiers
-- L'accès à **ces** fichiers **doit** être **gratuit**
+
+### Droits
+- L'accès à ces fichiers **doit** être **gratuit**
+- Si vous choisissez de mettre ce projet tel quel dans votre site, vous **devez citer** l'auteur soit https://github.com/QuentinBubu/
 
 ### Contraintes 
 1. Le JS HTML CSS PHP **uniquement doivent** être utilisé
