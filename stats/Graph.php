@@ -24,7 +24,9 @@ class Graph
         //Définition des marges
         define('spaceWidth', 30);
         define('spaceHeight', 15);
-        define('padding', 100);
+        define('paddingLeft', 25);
+        define('paddingBottom', 100);
+
         //Attribution des variables
         $this->all = $all;
         $this->date = $date;
@@ -38,10 +40,10 @@ class Graph
     private function newImage()
     {
         //Définition de la hauteur et largeur
-        $this->width = count($this->date)*spaceWidth+padding*2;
-        $this->height = (min($this->data) < 0 ? min($this->data) + max($this->data) : max($this->data))*spaceHeight+padding*2;
+        $this->width = count($this->date)*spaceWidth+paddingLeft;
+        $this->height = max($this->data)*spaceHeight+paddingBottom+spaceHeight;
         //Création de l'image
-        $this->image = imagecreate($this->width, $this->height);
+        $this->image = imagecreate($this->width+8, $this->height);
 
         //Définition du cadre
         imagerectangle($this->image, 0, 0, $this->width-1, $this->height-1, $this->colorGrey);
@@ -85,14 +87,14 @@ class Graph
     {
         //Création du repère
         //Pour rappel, l'origine de l'image est en haut à gauche
-        imageline($this->image, padding, $this->height-padding, $this->width-padding, $this->height-padding, $this->colorBlack); //Abscises
-        imageline($this->image, padding, padding, padding, $this->height-padding, $this->colorBlack); //Ordonnés
+        imageline($this->image, paddingLeft, $this->height-paddingBottom, $this->width, $this->height-paddingBottom, $this->colorBlack); //Abscises
+        imageline($this->image, paddingLeft, $this->height-paddingBottom, paddingLeft, spaceHeight, $this->colorBlack); //Ordonnés
         //Création des lignes repères
         for ($i = 1; $i <= max($this->data); $i++) {
             //Création des lignes abscises
-            imageline($this->image, padding+1, $this->height-$i*spaceHeight-padding, $this->width-padding-1, $this->height-$i*spaceHeight-padding, $this->colorGrey);
+            imageline($this->image, paddingLeft+1, $this->height-$i*spaceHeight-paddingBottom, $this->width-1, $this->height-$i*spaceHeight-paddingBottom, $this->colorGrey);
             //Création du texte
-            imagefttext($this->image, 10, 0, padding-17, $this->height-$i*spaceHeight-padding+5, $this->colorBlack, $this->fontFile, $i);
+            imagefttext($this->image, 8, 0, paddingLeft-17, $this->height-$i*spaceHeight-paddingBottom+5, $this->colorBlack, $this->fontFile, $i);
         }
     }
 
@@ -101,18 +103,18 @@ class Graph
         $this->repere();
         //Placement des points
         foreach ($this->data as $key => $valeur) {
-            $pointX = padding+$key*spaceWidth+spaceWidth;
-            $pointY = $this->height-$valeur*spaceHeight-padding;
+            $pointX = paddingLeft+$key*spaceWidth+spaceWidth;
+            $pointY = $this->height-$valeur*spaceHeight-paddingBottom;
             imagefilledellipse($this->image, $pointX, $pointY, 6, 6, $this->colorRed); //On mets un point
-            imageline($this->image, $pointX, $this->height-padding-1, $pointX, $pointY, $this->colorDarkGrey);
+            imageline($this->image, $pointX, $this->height-paddingBottom-1, $pointX, $pointY, $this->colorDarkGrey);
             imagefttext($this->image, 8, 80, $pointX-8, $this->height-10, $this->colorBlack, $this->fontFile, $this->all[$key][3]); //On mets la date
             if ($key !== 0) {
                 imageline($this->image, $pointX-2.5, $pointY, $this->lastPointX+2.5, $this->lastPointY, $this->colorBlue);
                 $this->lastPointX = $pointX;
                 $this->lastPointY = $pointY;
             } else {
-                $this->lastPointX = padding+$key*spaceWidth+spaceWidth;
-                $this->lastPointY = $this->height-$valeur*spaceHeight-padding;
+                $this->lastPointX = paddingLeft+$key*spaceWidth+spaceWidth;
+                $this->lastPointY = $this->height-$valeur*spaceHeight-paddingBottom;
             }
         }
     }
@@ -123,16 +125,22 @@ class Graph
         //Création des barres
         $i = 0;
         foreach ($this->data as $key => $valeur) {
-            $pointX = padding+$key*spaceWidth+1;
-            $pointY = $this->height-$valeur*spaceHeight-padding;
+            $pointX = paddingLeft+$key*spaceWidth+1;
+            $pointY = $this->height-$valeur*spaceHeight-paddingBottom;
             if ($i == 0) {
-                imagefilledrectangle($this->image, $pointX, $this->height-padding-1, $pointX+spaceWidth, $pointY, $this->colorPurple); //On mets un point
+                imagefilledrectangle($this->image, $pointX, $this->height-paddingBottom-1, $pointX+spaceWidth, $pointY, $this->colorPurple); //On mets un point
                 $i++;
             } elseif ($i == 1) {
-                imagefilledrectangle($this->image, $pointX, $this->height-padding-1, $pointX+spaceWidth, $pointY, $this->colorMauve); //On mets un point
+                imagefilledrectangle($this->image, $pointX, $this->height-paddingBottom-1, $pointX+spaceWidth, $pointY, $this->colorMauve); //On mets un point
                 $i--;
             }
             imagefttext($this->image, 8, 80, $pointX-8, $this->height-10, $this->colorBlack, $this->fontFile, $this->all[$key][3]); //On mets la date
         }
     }
 }
+
+/*
+ Code écrit pas https://github.com/QuentinBubu/
+ Pour https://made.alwaysdata.net
+ Voir vos droits https://github.com/QuentinBubu/made/tree/master/stats
+*/

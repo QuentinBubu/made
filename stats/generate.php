@@ -36,15 +36,21 @@ array_multisort($columns, SORT_ASC, $all, $temp, $rain, $wind); // Mise dans l'o
 
 $type = $_GET['type'];
 if ($type === 'temp') {
-    $graphique = new Graph($all, $temp, $date);
-    $graphique->getNewPointGraph();
-    $graphique->getGenerateImage();
+    $graphiqueT = new Graph($all, $temp, $date);
+    $graphiqueT->getNewPointGraph();
+    $graphiqueT->getGenerateImage();
 } elseif ($type === 'wind') {
-    $graphique = new Graph($all, $wind, $date);
-    $graphique->getNewPointGraph();
-    $graphique->getGenerateImage();
+    $graphiqueW = new Graph($all, $wind, $date);
+    $graphiqueW->getNewPointGraph();
+    $graphiqueW->getGenerateImage();
 } elseif ($type === 'rain') {
-    $graphique = new Graph($all, $rain, $date);
-    $graphique->getNewBarreGraph();
-    $graphique->getGenerateImage();
+    $graphiqueR = new Graph($all, $rain, $date);
+    $graphiqueR->getNewBarreGraph();
+    $graphiqueR->getGenerateImage();
 }
+
+/*
+ Code écrit pas https://github.com/QuentinBubu/
+ Pour https://made.alwaysdata.net
+ Voir vos droits https://github.com/QuentinBubu/made/tree/master/stats
+*/

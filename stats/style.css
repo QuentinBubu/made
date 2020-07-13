@@ -40,15 +40,11 @@ form {
     border-radius: 5%;
 }
 
-img {
-    margin: -90px -20px 0 -40px;
-}
-
 #graphs {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 #graphs>table>thead>tr {
@@ -61,8 +57,18 @@ img {
 }
 
 #graphs>table {
-    margin: 50px;
+    margin: 5% 0%;
     background-color: white;
+}
+
+td {
+    padding: 0 25px;
+}
+
+@media (min-width: 769px) {
+    span>img {
+        margin: 5% 0;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -74,3 +80,10 @@ img {
         height: auto;
     }
 }
+
+
+/*
+ Code écrit pas https://github.com/QuentinBubu/
+ Pour https://made.alwaysdata.net
+ Voir vos droits https://github.com/QuentinBubu/made/tree/master/stats
+*/
