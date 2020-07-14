@@ -1,6 +1,6 @@
 <?php
-//Type mime de l'image
-//header('Content-type: image/png');
+//Type de l'image et du document
+header('Content-type: image/png');
 //Importation de la class crée
 require_once 'Graph.php';
 //Récupération des valeurs
@@ -10,8 +10,9 @@ $rain = $data['rain'];
 $wind = $data['wind'];
 $date = $data['date'];
 $hour = $data['hour'];
+
 /*Création d'un tableau all qui contiendra les données sous cet ordre
-*all = [
+all = [
     [0]=>
         array(4) {
             [0]=>
@@ -32,12 +33,16 @@ for ($i = 0; $i < count($temp); $i++) {
     $all[$i] = [$temp[$i], $rain[$i], $wind[$i], date($date[$i] . ' ' . $hour[$i])];
 }
 $columns = array_column($all, 3); //Séléction des lignes date
-array_multisort($columns, SORT_ASC, $all, $temp, $rain, $wind); // Mise dans l'ordre croissant des tableaux
+array_multisort($columns, SORT_ASC, $all, $temp, $rain, $wind); //Mise dans l'ordre croissant des tableaux
 
+//Récupération du type de graphique souhaité
 $type = $_GET['type'];
 if ($type === 'temp') {
+    //Appel à la class Graph
     $graphiqueT = new Graph($all, $temp, $date);
+    //Appel à la fonction getNewPointGraph dans la class Graph qui va permettre de générer un graphique en point
     $graphiqueT->getNewPointGraph();
+    //Récupération de l'image
     $graphiqueT->getGenerateImage();
 } elseif ($type === 'wind') {
     $graphiqueW = new Graph($all, $wind, $date);
@@ -50,7 +55,7 @@ if ($type === 'temp') {
 }
 
 /*
- Code écrit pas https://github.com/QuentinBubu/
- Pour https://made.alwaysdata.net
- Voir vos droits https://github.com/QuentinBubu/made/tree/master/stats
+ * Code écrit pas https://github.com/QuentinBubu/
+ * Pour https://made.alwaysdata.net
+ * Voir vos droits https://github.com/QuentinBubu/made/tree/master/stats
 */

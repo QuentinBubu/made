@@ -1,16 +1,75 @@
 <?php
+// L'on vérifie que tout les champs sont présents et aucun supprimer en utilisant la fonction count pour les contés et voir si il y en a le même nombre
+if (
+    count($_POST['temp'])
+    !== count($_POST['rain'])
+    || count($_POST['rain'])
+    !== count($_POST['wind'])
+    || count($_POST['wind'])
+    !== count($_POST['date'])
+    || count($_POST['date'])
+    !== count($_POST['hour']) 
+) {
+    ?>
+    <script>
+    //Si il manque des champs, on affiche une alerte suivi d'une redirection
+    alert('Des champs ont été supprimés, veuillez recommencer!');
+    document.location.href="index.html";
+    </script>
+    <?php
+}
+//On parcourt le tableau multidimensionnel POST
+foreach ($_POST as $arrays) {
+    //On parcourt les tableaux dans POST
+    foreach ($arrays as $value) {
+        if (empty($value)) {
+            ?>
+            <script>
+            //Si des champs n'ont pas été saisis et contourné le required, on affiche une alert suivi d'une redirection
+            alert('Veuillez saisir tout les champs!');
+            document.location.href="index.html";
+            </script>
+            <?php
+        }
+    }
+}
+//On assigne les tableaux
 $temp = $_POST['temp'];
 $rain = $_POST['rain'];
 $wind = $_POST['wind'];
 $date = $_POST['date'];
 $hour = $_POST['hour'];
+
+//Si la personne à cochée la case "sauvegarder sur JSON"
+if (isset($_POST['json'])) {
+    //Récupération des données JSON
+    $json = json_decode(file_get_contents('data.json'), true);
+    //Fusion des tableaux avec array_merge
+    $temp = $_POST['temp'] = array_merge($temp, $json['temp']);
+    $rain = $_POST['rain'] = array_merge($rain, $json['rain']);
+    $wind = $_POST['wind'] = array_merge($wind, $json['wind']);
+    $date = $_POST['date'] = array_merge($date, $json['date']);
+    $hour = $_POST['hour'] = array_merge($hour, $json['hour']);
+    //Régénération d'un tableau pour la sauvegarde JSON
+    $json =
+    [
+        'temp' => $temp,
+        'rain' => $rain,
+        'wind' => $wind,
+        'date' => $date,
+        'hour' => $hour
+    ];
+    //Sauvegarde JSON
+    file_put_contents('data.json', json_encode($json));
+}
+
 $all = [];
 for ($i = 0; $i < count($temp); $i++) {
     //On mets dans all les informations tout en créant un tableau
     $all[$i] = [$temp[$i], $rain[$i], $wind[$i], date($date[$i] . ' ' . $hour[$i])];
 }
 $columns = array_column($all, 3); //Séléction des lignes date
-array_multisort($columns, SORT_DESC, $all); // Mise dans l'ordre croissant des tableaux
+array_multisort($columns, SORT_DESC, $all); //Mise dans l'ordre croissant des tableaux
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +85,28 @@ array_multisort($columns, SORT_DESC, $all); // Mise dans l'ordre croissant des t
 
 <body>
     <section id="graphs">
-        <span><img src="generate.php?type=temp&data=<?= urlencode(json_encode($_POST)) ?>" alt="Graphique de la vitesse du vent"/></span>
-        <span><img src="generate.php?type=rain&data=<?= urlencode(json_encode($_POST)) ?>" alt="Graphique de la quantité de pluie tombée"/></span>
-        <span><img src="generate.php?type=wind&data=<?= urlencode(json_encode($_POST)) ?>" alt="Graphique de la vitesse du vent"/></span>
+        <!--
+            Génération des images, passages des données de POST via url;
+            Vous remarquerz qu'un span entoure chaque image, c'est pour éviter le redimentionnement
+        -->
+        <span>
+            <img
+                src="generate.php?type=temp&data=<?= urlencode(json_encode($_POST)) ?>"
+                alt="Graphique de la vitesse du vent"
+            />
+        </span>
+        <span>
+            <img
+            src="generate.php?type=rain&data=<?= urlencode(json_encode($_POST)) ?>"
+            alt="Graphique de la quantité de pluie tombée"
+            />
+        </span>
+        <span>
+            <img
+                src="generate.php?type=wind&data=<?= urlencode(json_encode($_POST)) ?>"
+                alt="Graphique de la vitesse du vent"
+            />
+        </span>
         <div class="break_flex"></div>
         <table>
             <thead>

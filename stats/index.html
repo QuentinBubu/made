@@ -11,11 +11,15 @@
 </head>
 
 <body>
+    <!--Affichage des titres-->
     <h1>Bienvenue sur le site créateur de statistiques météorologiques</h1>
     <h3>Veilliez remplir les champs ci-dessous</h3>
     <form action="affichage.php" method="post">
         <section id="formulaire">
-
+            <!--
+                Création d'un label et input;
+                le fait de mettre à la fin du name [] permet de mettre les éléments dans un tableau
+            -->
             <label for="temp1">Température</label>
             <input type="number" name="temp[]" id="temp1" required />
 
@@ -30,8 +34,12 @@
 
             <label for="hour1">Heure</label>
             <input type="time" name="hour[]" id="hour1" required />
-
+            <!--hrBreak permet de définir un point pour JS où sera mis les champs générés-->
             <hr id="hrBreak" />
+            <hr />
+            <label for="json">Enregistrer ces données dans un fichier</label>
+            <input type="checkbox" name="json" id="json" />
+            <hr />
             <hr />
             <button type="button" id="less">-</button>
             <button type="button" id="more">+</button>

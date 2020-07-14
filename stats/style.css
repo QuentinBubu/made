@@ -1,10 +1,15 @@
 body {
+    /*Couleur de la police en noir*/
     color: black;
+    /*Alignement du texte au centre*/
     text-align: center;
+    /*Fond des pages avec l'image fond.jpg*/
     background-image: url('fond.jpg');
+    /*La propriété cover permet de garder des proportions à l'image tout en prenant toute la place*/
     background-size: cover;
 }
 
+/*Suppression des outlines notamment pour les inputs & boutons*/
 *:focus,
 *:after,
 *:before,
@@ -13,6 +18,7 @@ body {
     outline: none;
 }
 
+/*Création d'une class permettant le retour à la ligne forcé avec flexbox*/
 .break_flex {
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
@@ -23,17 +29,23 @@ body {
 
 form {
     display: flex;
+    /*Centrage des éléments dans le form, notamment pour la section*/
     justify-content: center;
 }
 
 #formulaire {
     display: grid;
+    /*
+     * Séparation du formulaire en 2,
+     * C'est pour cela que nous avons besoin de mettre 2 hr
+     */
     grid-template-columns: repeat(2, 1fr);
     background-color: #a5a4a4;
     text-align: right;
 }
 
 #formulaire>*:not(hr) {
+    /*Pour tout les éléments n'étant pas des hr, application des marges et arrondissement léger des bords*/
     margin-top: 5px;
     margin-bottom: 5px;
     margin-right: 5px;
@@ -42,9 +54,17 @@ form {
 
 #graphs {
     display: flex;
+    /*Retour à la ligne si il y a plus de place*/
     flex-wrap: wrap;
+    /*Espaces de même taille entre chaqe image et sur les côtés*/
     justify-content: space-around;
+    /*Alignement des items en bas*/
     align-items: flex-end;
+}
+
+#graphs>table {
+    margin: 5% 0%;
+    background-color: white;
 }
 
 #graphs>table>thead>tr {
@@ -56,31 +76,29 @@ form {
     border: 2px solid black;
 }
 
-#graphs>table {
-    margin: 5% 0%;
-    background-color: white;
-}
-
 td {
     padding: 0 25px;
 }
 
+/*Pour appareil plutôt type pc*/
 @media (min-width: 769px) {
     span>img {
+        /*Création d'une marge vers le bas rt haut de 5%*/
         margin: 5% 0;
     }
 }
 
+/*Pour appareil plutôt type téléphone*/
 @media screen and (max-width: 768px) {
     #graphs {
+        /*Disposition des éléments en colonne*/
         flex-direction: column;
     }
-    #graphs>* {
-        width: 100%;
+    #graphs>*{
+        width: 95%;
         height: auto;
     }
 }
-
 
 /*
  Code écrit pas https://github.com/QuentinBubu/

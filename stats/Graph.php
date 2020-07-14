@@ -1,6 +1,7 @@
 <?php
 class Graph
 {
+    //Définition des variables
     private $colorWhite;
     private $colorGrey;
     private $colorDarkGrey;
@@ -27,11 +28,12 @@ class Graph
         define('paddingLeft', 25);
         define('paddingBottom', 100);
 
-        //Attribution des variables
+        //Attribution de certaines variables
         $this->all = $all;
         $this->date = $date;
         $this->data = $data;
         $this->fontFile = dirname(__FILE__) . '/arial.ttf';
+
         //Initialisation de l'image et des couleurs
         $this->newImage();
         $this->colors();
@@ -103,11 +105,14 @@ class Graph
         $this->repere();
         //Placement des points
         foreach ($this->data as $key => $valeur) {
+
             $pointX = paddingLeft+$key*spaceWidth+spaceWidth;
             $pointY = $this->height-$valeur*spaceHeight-paddingBottom;
+
             imagefilledellipse($this->image, $pointX, $pointY, 6, 6, $this->colorRed); //On mets un point
             imageline($this->image, $pointX, $this->height-paddingBottom-1, $pointX, $pointY, $this->colorDarkGrey);
             imagefttext($this->image, 8, 80, $pointX-8, $this->height-10, $this->colorBlack, $this->fontFile, $this->all[$key][3]); //On mets la date
+
             if ($key !== 0) {
                 imageline($this->image, $pointX-2.5, $pointY, $this->lastPointX+2.5, $this->lastPointY, $this->colorBlue);
                 $this->lastPointX = $pointX;
@@ -121,6 +126,7 @@ class Graph
 
     private function newBarreGraph()
     {
+        //Création du repère
         $this->repere();
         //Création des barres
         $i = 0;
@@ -128,13 +134,13 @@ class Graph
             $pointX = paddingLeft+$key*spaceWidth+1;
             $pointY = $this->height-$valeur*spaceHeight-paddingBottom;
             if ($i == 0) {
-                imagefilledrectangle($this->image, $pointX, $this->height-paddingBottom-1, $pointX+spaceWidth, $pointY, $this->colorPurple); //On mets un point
+                imagefilledrectangle($this->image, $pointX, $this->height-paddingBottom-1, $pointX+spaceWidth, $pointY, $this->colorPurple); //On mets le rectangle
                 $i++;
             } elseif ($i == 1) {
-                imagefilledrectangle($this->image, $pointX, $this->height-paddingBottom-1, $pointX+spaceWidth, $pointY, $this->colorMauve); //On mets un point
+                imagefilledrectangle($this->image, $pointX, $this->height-paddingBottom-1, $pointX+spaceWidth, $pointY, $this->colorMauve); //On mets le rectangle
                 $i--;
             }
-            imagefttext($this->image, 8, 80, $pointX-8, $this->height-10, $this->colorBlack, $this->fontFile, $this->all[$key][3]); //On mets la date
+            imagefttext($this->image, 8, 80, $pointX-8, $this->height-10, $this->colorBlack, $this->fontFile, $this->all[$key][3]); //On mets le rectangle
         }
     }
 }
