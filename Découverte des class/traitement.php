@@ -69,5 +69,5 @@ if ($_GET['type'] === 'connexion') {
 /*
  * Code écrit pas https://github.com/QuentinBubu/
  * Pour https://made.alwaysdata.net
- * Voir vos droits https://github.com/QuentinBubu/made/tree/master/stats
+ * Voir vos droits https://github.com/QuentinBubu/made/tree/master/D%C3%A9couverte%20des%20class
 */
