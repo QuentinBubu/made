@@ -1,5 +1,5 @@
 # Répertoire made
-Le répertoire est **cré pour** https://made.alwaysdata.net et **cré par** https://github.com/QuentinBubu/ (github), je me réserve **le droit de toutes modifications**
+Le répertoire est **créé pour** https://made.alwaysdata.net et **cré par** https://github.com/QuentinBubu/ (github), je me réserve **le droit de toutes modifications**
 Il est là pour stoker les corrections et d'éventuels ressources
 
 - Ces fichiers sont **une** correction proposée et non **la** correction
