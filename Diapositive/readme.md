@@ -25,4 +25,4 @@ Diapositive est un TP **créé pour** https://made.alwaysdata.net et **créé pa
 5. La maquette est disponible sur https://www.figma.com/file/tziO8cwuZTu8cWaaHOTa6b/Diapositive?node-id=0%3A1
 6. Niveau de difficulté 1: le diaporama doit être fait; avec un boton pour avancer et un pour reculer
 7. Niveau de difficulté 2: le diaporama doit être responsive; le diaporama doit défiler automatiquement
-8. Niveau de difficulté 3: le diaporama doit avoir un indicateur de position sur lequel on peut cliquer; doit détecter si l'utilisateur est actif, au bout de 10 secondes d'inactivié, lancer le diaporama
+8. Niveau de difficulté 3: le diaporama doit avoir un indicateur de position sur lequel on peut cliquer; doit détecter si l'utilisateur est actif, au bout de 10 secondes d'inactivié, lancer le diaporama; ainsi qu'une croix et l'appuis sur "Entrée" pour quitter la diapositive
