@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(221, 226, 204);
+}
+
+#diapo {
+    display: none;
+}
+
+.cadre-diapo {
+    align-items: center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: #4b3f3fcc;
+}
+
+.diapo {
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1s;
+}
+
+.number {
+    border: none;
+    cursor: pointer;
+}
+
+.precedent,
+.suivant {
+    color: silver;
+    transition: color .4s linear;
+    padding: .5rem;
+    font-size: 2rem;
+    background: white;
+    position: absolute;
+    transform: translatey(-50%);
+    top: 50%;
+    border: none;
+}
+
+.precedent {
+    left: 1rem;
+}
+
+.suivant {
+    right: 1rem;
+}
+
+.precedent:hover,
+.suivant:hover {
+    color: black
+}
+
+.numeros {
+    transition: background 0.4s linear;
+    background: rgb(216, 213, 58);
+}
+
+#cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.cadre-number {
+    position: absolute;
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 769px), (orientation: landscape) {
+    #diapo {
+        width: 100vw;
+        height: 100vh;
+    }
+    .cadre-diapo {
+        width: 100vw;
+        height: 100vh;
+    }
+    .cadre-diapo>img {
+        height: 90vh;
+        width: auto;
+    }
+    #enter {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #diapo {
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(90deg);
+    }
+    .cadre-diapo {
+        width: 100vh;
+        height: 100vw;
+    }
+    .cadre-diapo>img {
+        max-width: 80vh;
+        max-height: 80vw;
+    }
+    #enter {
+        display: none;
+    }
+}
