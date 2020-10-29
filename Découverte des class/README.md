@@ -17,8 +17,8 @@ Aucune
 
 ### Contraintes 
 1. Vous **devez** utiliser le PHP
-2. Une class User et un class Database **doivent** être crées
-3. Votre class User **doit** hérité de la class Database
-4. Votre class Database **doit** contenir un constructeur, une fonction établisante la connexion avec la database, une fonction permettante de faire une requête
-5. La class User **doit** contenir une fonction pour créer un compte, pour établir la connexion avec un compte, différentes fonctions pour récuperer, l'id, le type du compte...
+2. Une class `User` et un class `Database` **doivent** être crées
+3. Votre class `User` **doit** hérité de la class `Database`
+4. Votre class `Database` **doit** contenir un constructeur, une fonction établissant la connexion avec la database, une fonction permettant de faire une requête
+5. La class User **doit** contenir une fonction pour créer un compte, pour établir la connexion avec un compte, différentes fonctions pour récupérer, l'id, le type du compte...
 6. Votre code **devrait** respecter les PSR
