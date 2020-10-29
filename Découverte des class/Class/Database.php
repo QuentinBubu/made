@@ -10,7 +10,7 @@ class Database
     private $pdo;
 
     //La fonction __construct permet d'exécuter le code dedans un l'initialisation de la class, la fonction doit être en pubic
-    public function __construct($login = "root", $password = "", $host = "localhost", $db_name = "example")
+    public function __construct(string $login = "root", string $password = "", string $host = "localhost", string $db_name = "example")
     {
         //On utilises $this-> pour cibler la variable dite courante, celle définie plus haut,
         //vous remarquerez que l'on ne mets pas de $ avant le nom mais avant this
@@ -36,7 +36,7 @@ class Database
     }
 
     //Création d'une fonction en privé, le = '' après $type permet de dire que si la variable type n'est pas donné lors de l'appel 
-    private function request($request, $values, $type)
+    private function request(string $request, array $values, string $type)
     {
         $request = $this->pdo->prepare($request);
         $request->execute($values);
